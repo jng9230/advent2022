@@ -7,8 +7,7 @@ def solve():
     biggest = 0
     with open('1-input.txt', 'r') as f:
         for line in f:
-            # val = line.strip()
-            print(line)
+            val = line.strip()
             #skip and reset sum if new line
             if val == "": 
                 curr_sum = 0
