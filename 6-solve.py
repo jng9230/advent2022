@@ -1,6 +1,3 @@
-from traceback import print_list
-
-
 def solve():
     """
     find the index at which there exists 4 unique preceeding characters
