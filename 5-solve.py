@@ -39,7 +39,7 @@ def get_steps(text):
     for step in text:
         step = re.sub(r'\s+', '', step)
         move = int(step.split("move")[1].split("from")[0])
-        from1 = int(step.split("from")[1].split("to")[0])-1
+        from1 = int(step.split("from")[1].split("to")[0])-1 #-1 as python lists are 0-based
         to = int(step.split("to")[1])-1
         steps.append({
             "move": move,
@@ -68,6 +68,7 @@ def solve():
         for _ in range(step.get("move")):
             popped = stacks[step.get("from")].pop()
             stacks[step.get("to")].append(popped)
+
     temp = ""
     for stack in stacks:
         temp += stack.pop()
@@ -90,9 +91,6 @@ def solve2():
             popped = stacks[step.get("from")].pop()
             temp_stack.appendleft(popped)
 
-        # moves = step.get("move")
-        # from_stack = stacks[step.get("from")]
-        # temp_stack = from_stack[len(from_stack) - moves:]
         stacks[step.get("to")] += temp_stack
         
     temp = ""
