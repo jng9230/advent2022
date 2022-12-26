@@ -24,8 +24,6 @@ def solve():
             points += values.get((first,sec))
     return points
 
-print(solve())
-
 def solve2():
     """
     """
@@ -51,5 +49,6 @@ def solve2():
             points += values.get((first,sec))
     return points
 
-print(solve2())
-
+if __name__ == "__main__":
+    print(solve())
+    print(solve2())

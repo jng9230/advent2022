@@ -24,8 +24,6 @@ def solve():
 
     return val_sum
 
-print(solve())
-
 def solve2():
     val_sum = 0
     with open('3-input.txt', 'r') as f:
@@ -56,4 +54,6 @@ def solve2():
             
     return val_sum
 
-print(solve2())
+if __name__ == "__main__":
+    print(solve())
+    print(solve2())

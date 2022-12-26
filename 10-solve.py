@@ -1,12 +1,5 @@
 def solve():
-    """
-    """
-
     important_cycles = set([20, 60, 100, 140, 180, 220])
-    # queue = {} #cycle_to_end_at:value_to_add pairs
-    
-    add_at = 99 #cycle at which to update the register value
-    # add_val = 0 #val to be added to the register
     reg = 1 #register value
     cycle = 0
     res = 0 #result to return: sum of values at important cycles
@@ -35,9 +28,6 @@ def solve():
 
 
 def solve2():
-    """
-    """
-
     important_cycles = set([40, 80, 120, 160, 200, 240])
     reg = 1 #register value
     cycle = 0
