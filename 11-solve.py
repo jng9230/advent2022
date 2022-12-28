@@ -22,7 +22,7 @@ def to_dict(text):
         lines = monkey.split("\n")
         name = int(lines[0][-2])
         items = lines[1].split(": ")[1].split(",")
-        items = deque(list(map(lambda x: int(x), items))) #deque for poplefts
+        items = deque((map(lambda x: int(x), items))) #deque for poplefts
         test = int(lines[3].split(" ")[-1])
         test1 = int(lines[4][-1])
         test0 = int(lines[5][-1])
@@ -62,15 +62,14 @@ def solve():
             while len(m["items"]): #check only if there are items
                 m["inspections"] += 1
                 item = m["items"].popleft()#inspect item 
-                # item1 = m["op"](item) #inspect, change worry
-                # item1 = FUCK[i](item)
+
+                #operate on item
                 rhs = item if m["operand"] == "old" else int(m["operand"])
-                if m["op"] == "+":
-                    item1 = item + rhs 
-                else:
-                    item1 = item * rhs
+                item1 = item + rhs if m["op"] == "+" else item * rhs
                 item2 = item1 // 3 #drop worry b/c no damage
-                if item2 % m["test"] == 0: #test and toss
+
+                #test and toss
+                if item2 % m["test"] == 0: 
                     monkeys[m["test1"]]["items"].append(item2)
                 else: 
                     monkeys[m["test0"]]["items"].append(item2)
@@ -108,14 +107,14 @@ def solve2():
             while len(m["items"]): #check only if there are items
                 m["inspections"] += 1
                 item = m["items"].popleft()#inspect item 
-                # item1 = m["op"](item) #inspect, change worry
+
+                #operate on item
                 rhs = item if m["operand"] == "old" else int(m["operand"])
-                if m["op"] == "+":
-                    item1 = item + rhs 
-                else:
-                    item1 = item * rhs
+                item1 = item + rhs if m["op"] == "+" else item * rhs
                 item2 = item1 % LCM
-                if item2 % m["test"] == 0: #test and toss
+
+                #test and toss
+                if item2 % m["test"] == 0: 
                     monkeys[m["test1"]]["items"].append(item2)
                 else: 
                     monkeys[m["test0"]]["items"].append(item2)
